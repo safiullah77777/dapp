@@ -1,0 +1,85 @@
+.select-nft {
+  font-size: 1.6rem;
+}
+
+.select-menu-item {
+  color: black;
+  font-size: 1.4rem;
+}
+
+.dialog-actions {
+  display: flex;
+  flex-direction: column;
+  padding: 0px 20px !important;
+  margin-bottom: 20px;
+}
+
+.dialog-btn {
+  font-size: 1.5rem;
+}
+
+.metamask-btn {
+  font-weight: 600 !important;
+  color: rgb(209, 171, 77) !important;
+  margin: 10px 0px !important;
+  border: 1px solid rgb(209, 171, 77) !important;
+  padding: 10px 20px !important;
+  width: 100%;
+}
+
+.metamask-btn:hover {
+  color: #fff !important;
+  background-color: rgb(209, 171, 77) !important;
+}
+
+.metamask-btn:disabled {
+  color: #ccc !important;
+  background-color: #fff !important;
+  border-color: #ccc !important;
+}
+
+.cancel-btn {
+  color: #ccc !important;
+  margin: 10px 0px !important;
+  border: 1px solid #ccc !important;
+  padding: 10px 20px !important;
+  width: 100%;
+}
+
+.cancel-btn:hover {
+  color: #fff !important;
+  background-color: #ccc !important;
+}
+
+.tx {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.tx-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.tx-loading {
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.tx-loading svg circle {
+  color: #1976d2;
+}
+
+.tx a {
+  font-size: 1.5rem;
+}
+
+.tx-actions {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
