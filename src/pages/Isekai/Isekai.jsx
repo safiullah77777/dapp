@@ -1,4 +1,3 @@
-import ConnectBox from 'components/connectBox/ConnectBox'
 import Footer from 'components/Footer/Footer'
 import Navbar from 'components/Navbar/Navbar'
 
@@ -7,7 +6,7 @@ import Navbar from 'components/Navbar/Navbar'
 
 
 
-// Create new plugin instance
+// //Create new plugin instance
 function Isekai() {
   
   return (
