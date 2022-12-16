@@ -60,13 +60,13 @@ function Navbar({ page }) {
             >
               <Link to={'/services'}>Services</Link>
             </li>
-            <li
+            {/* <li
               className={` text-[1.8rem] ${
                 page === 5 ? 'text-[#E8C37E]' : 'text-[#ffffff]'
               } Outfit font-[600] hover:cursor-pointer`}
             >
               <Link to={'/upload'}>Upload</Link>
-            </li>
+            </li> */}
           </ul>
         </div>
       </div>

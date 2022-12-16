@@ -35,19 +35,6 @@ function ContactUs() {
   const onsubmit = (e) => {
     e.preventDefault()
     if (loading) return
-    const urlregex = new RegExp(/[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)?/gi)
-    const youtubeurl = new RegExp(
-      /^(?:https?:\/\/)?(?:www\.)?(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))((\w|-){11})(?:\S+)?$/,
-    )
-
-    // if (!youtubeLink && !urlregex.test(data.url)) {
-    //   alert("invalid url");
-    //   return;
-    // }
-    // else if (youtubeLink && !youtubeurl.test(data.url)) {
-    //   alert("invalid youtube link");
-    //   return;
-    // }
     setLoading(true)
     addLink({
       title: data.title,

@@ -16,7 +16,7 @@ function Isekai() {
       
       <div className="w-full  bg3 flex flex-col items-center justify-center py-[8rem] gap-[3rem]">
         <h1 className="text-[7rem] max-w-[82rem] text-[#FFFFFF] font-[300] leading-[100%] text-center">
-          Mint your <span className="text-[#E8C37E] font-[700]"> Isekai</span> and start your journey
+          start your journey with<span className="text-[#E8C37E] font-[700]"> Isekai</span> since minting is over
         </h1>
         <p className="Outfit font-[300] max-w-[110rem] leading-[120%] text-[2.4rem] text-[#ffffff]  text-center">
           Isekai is a collection of artwork consisting of Japanese anime characters, of which each represents an Isekai
