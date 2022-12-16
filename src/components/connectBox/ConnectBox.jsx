@@ -9,9 +9,8 @@ const ConnectBox = () => {
           fill="#E8C37E"
         />
       </svg>
-
       <span className="Outfit text-center font-[700] text-[2.4rem] text-[#FFFFFF] max-w-[75rem] leading-[100%]">
-        Connact
+        Connect
       </span>
     </button>
   )

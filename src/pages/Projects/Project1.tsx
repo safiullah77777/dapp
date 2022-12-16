@@ -20,9 +20,9 @@ const Project1 = () => {
           minHeight: '100%',
         }}
       />
-      <div style={{ padding: '.5rem 1rem' }}>
+      {/* <div style={{ padding: '.5rem 1rem' }}>
         <NavBar />
-      </div>
+      </div> */}
       <div
         style={{
           padding: '2rem 5rem',

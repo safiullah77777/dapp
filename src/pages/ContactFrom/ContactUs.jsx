@@ -21,7 +21,7 @@ function ContactUs() {
     url: '',
   })
   const Login = (e) => {
-    e.preventDefault();
+    e.preventDefault()
     console.log(process.env)
     if (
       credentials.username !== process.env.REACT_APP_USER_NAME ||
@@ -64,14 +64,14 @@ function ContactUs() {
     <>
       <Navbar />
       <div className="flex flex-col min-h-[100vh] justify-center">
-        <h1 className={`text-[55px] text-[#FFFFFF] text-center font-[600] leading-[28px]mb-[3rem]`}>
+        <h1 className={`text-[5.5rem] text-[#FFFFFF] text-center font-[600] leading-[120%] mb-[3rem]`}>
           {login ? 'What you want to upload?' : 'Login'}
         </h1>
         {!login && (
           <form action="#" className="gap-[1rem] flex flex-col items-center ">
             <input
               type="text"
-              className="w-[506px] outline-none h-[48px] bg-[#FFFFFF] text-[#AEAEAE] text-[18px] leading-[28px] font-[400] border-1 border-solid border-[#E2E1E5] rounded-[5px] py-[10px] px-[15px]"
+              className="min-[650px]:w-[50rem] max-[650px]:max-w-[45rem]  outline-none h-[48px] bg-[#FFFFFF] text-[#AEAEAE] text-[18px] leading-[28px] font-[400] border-1 border-solid border-[#E2E1E5] rounded-[5px] py-[10px] px-[15px]"
               placeholder="username"
               name="username"
               value={credentials.username}
@@ -84,7 +84,7 @@ function ContactUs() {
             />
             <input
               type="password"
-              className="w-[506px] h-[48px] outline-none bg-[#FFFFFF] text-[#AEAEAE] text-[18px] leading-[28px] font-[400] border-1 border-solid border-[#E2E1E5] rounded-[5px] py-[10px] px-[15px]"
+              className="min-[650px]:w-[50rem] max-[650px]:max-w-[45rem] h-[48px] outline-none bg-[#FFFFFF] text-[#AEAEAE] text-[18px] leading-[28px] font-[400] border-1 border-solid border-[#E2E1E5] rounded-[5px] py-[10px] px-[15px]"
               placeholder="passwrod"
               name="password"
               value={credentials.password}
@@ -96,7 +96,7 @@ function ContactUs() {
               }
             />
             <button
-              className={`w-[506px] h-[48px]  text-[#FFFFFF] text-[18px] leading-[28px] font-[700]  rounded-[5px] `}
+              className={`min-[650px]:w-[50rem] max-[650px]:max-w-[45rem] h-[48px]  text-[#FFFFFF] text-[18px] leading-[28px] font-[700]  rounded-[5px] `}
               onClick={Login}
             >
               {loading ? 'Loading....' : 'Submit'}
@@ -106,7 +106,7 @@ function ContactUs() {
 
         {login && (
           <div className=" w-full  flex flex-col gap-[3rem]  justify-around items-center py-1 ">
-            <div className="flex justify-center items-center gap-[10px] ">
+            <div className="flex flex-wrap justify-center items-center gap-[10px] ">
               <button
                 className={`flex justify-center gap-[1rem] items-center w-[250px] h-[80px] ${
                   youtubeLink ? 'bg-[#F41E1E]' : 'bg-[#707070]'
@@ -155,7 +155,7 @@ function ContactUs() {
         {/* Youtube Container */}
         {login && (
           <div
-            className={`w-[612px] py-[2rem] mt-[3rem]  rounded-[50px] ${
+            className={`  mt-[3rem] px-[6rem] py-[3rem]  rounded-[50px] ${
               youtubeLink ? 'bg-[#F41E1E33]' : 'bg-[#7E5BFF33]'
             }
         flex justify-center items-center mx-auto my-2`}
@@ -165,37 +165,40 @@ function ContactUs() {
                 <></>
               ) : (
                 <>
-                  {' '}
-                  <input
-                    type="text"
-                    className="w-[506px] outline-none h-[48px] bg-[#FFFFFF] text-[#AEAEAE] text-[18px] leading-[28px] font-[400] border-1 border-solid border-[#E2E1E5] rounded-[5px] py-[10px] px-[15px]"
-                    placeholder="title"
-                    name="title"
-                    value={data.title}
-                    onChange={(e) =>
-                      setData((prev) => ({
-                        ...prev,
-                        [e.target.name]: e.target.value,
-                      }))
-                    }
-                  />
+                  <div className="flex min-[650px]:w-[50rem] max-[650px]:max-w-[45rem]">
+                    <input
+                      type="text"
+                      className="w-full outline-none h-[48px] bg-[#FFFFFF] text-[#AEAEAE] text-[18px] leading-[28px] font-[400] border-1 border-solid border-[#E2E1E5] rounded-[5px] py-[10px] px-[15px]"
+                      placeholder="title"
+                      name="title"
+                      value={data.title}
+                      onChange={(e) =>
+                        setData((prev) => ({
+                          ...prev,
+                          [e.target.name]: e.target.value,
+                        }))
+                      }
+                    />
+                  </div>
                 </>
               )}
-              <input
-                type="text"
-                className="w-[506px] h-[48px] outline-none bg-[#FFFFFF] text-[#AEAEAE] text-[18px] leading-[28px] font-[400] border-1 border-solid border-[#E2E1E5] rounded-[5px] py-[10px] px-[15px]"
-                placeholder="URL"
-                name="url"
-                value={data.url}
-                onChange={(e) =>
-                  setData((prev) => ({
-                    ...prev,
-                    [e.target.name]: e.target.value,
-                  }))
-                }
-              />
+              <div className="flex min-[650px]:w-[50rem] max-[650px]:max-w-[45rem]">
+                <input
+                  type="text"
+                  className="w-full h-[48px] outline-none bg-[#FFFFFF] text-[#AEAEAE] text-[18px] leading-[28px] font-[400] border-1 border-solid border-[#E2E1E5] rounded-[5px] py-[10px] px-[15px]"
+                  placeholder="URL"
+                  name="url"
+                  value={data.url}
+                  onChange={(e) =>
+                    setData((prev) => ({
+                      ...prev,
+                      [e.target.name]: e.target.value,
+                    }))
+                  }
+                />
+              </div>
               <button
-                className={`w-[506px] h-[48px]  text-[#FFFFFF] text-[18px] leading-[28px] font-[700] ${
+                className={`min-[650px]:w-[50rem] max-[650px]:max-w-[45rem] h-[48px]  text-[#FFFFFF] text-[18px] leading-[28px] font-[700] ${
                   youtubeLink ? 'bg-[#F41E1E]' : 'bg-[#7E5BFF]'
                 }   rounded-[5px] `}
                 onClick={(e) => onsubmit(e)}
