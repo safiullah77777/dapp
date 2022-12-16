@@ -51,7 +51,7 @@ function Navbar({ page }) {
                 page === 3 ? 'text-[#E8C37E]' : 'text-[#ffffff]'
               } Outfit font-[600] hover:cursor-pointer`}
             >
-              <Link to={'/comics'}>Comic & Videos</Link>
+              <Link to={'/comics'}>Comics & Videos</Link>
             </li>
             <li
               className={` text-[1.8rem] ${
