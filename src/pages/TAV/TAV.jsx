@@ -31,7 +31,7 @@ const TAV = () => {
         </p>
       </div>
       <div className="flex gap-[3rem] p-[5rem] max-[500px]:px-[2rem] flex-col items-center justify-center bg-[#111111]">
-        <h2 className="clash text-[7rem] max-[450px]:text-[5rem] font-[600] text-[#E8C37E] text-center max-w-[110rem] leading-[100%]">
+        {/* <h2 className="clash text-[7rem] max-[450px]:text-[5rem] font-[600] text-[#E8C37E] text-center max-w-[110rem] leading-[100%]">
           {' '}
           Choose one TAV art to be burnt for compensation{' '}
         </h2>
@@ -45,7 +45,7 @@ const TAV = () => {
         </div>
         <h2 className="clash text-[4.8rem]  font-[400] text-[#ffffff] text-center leading-[100%]">
           Burn the NFT and Get the Compensation
-        </h2>
+        </h2> */}
         {/* <div className="relative flex max-w-[62rem] ">
           <img src={select} className="w-full" alt="" />
           <div className="absolute top-0 flex justify-center items-center left-0 bg-[#000000]/[0.2] w-full h-full z-[10]">
