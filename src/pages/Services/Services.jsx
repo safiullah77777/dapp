@@ -1,17 +1,17 @@
 import Card3 from 'components/Card3/Card3'
 import Footer from 'components/Footer/Footer'
-import Input from 'components/Input/Input';
-import Navbar from 'components/Navbar/Navbar';
-import crypto from '../../assets/images/crypto.svg';
-import Cs1 from '../../assets/images/Cs1.svg';
-import Cs2 from '../../assets/images/Cs2.svg';
-import Cs3 from '../../assets/images/Cs3.svg';
-import Cs4 from '../../assets/images/Cs4.svg';
-import Cs5 from '../../assets/images/Cs5.svg';
-import Cs6 from '../../assets/images/Cs6.svg';
-import Cs7 from '../../assets/images/Cs7.svg';
-import Cs8 from '../../assets/images/Cs8.svg';
-import Cs9 from '../../assets/images/Cs9.svg';
+import Input from 'components/Input/Input'
+import Navbar from 'components/Navbar/Navbar'
+import crypto from '../../assets/images/crypto.svg'
+import Cs1 from '../../assets/images/Cs1.svg'
+import Cs2 from '../../assets/images/Cs2.svg'
+import Cs3 from '../../assets/images/Cs3.svg'
+import Cs4 from '../../assets/images/Cs4.svg'
+import Cs5 from '../../assets/images/Cs5.svg'
+import Cs6 from '../../assets/images/Cs6.svg'
+import Cs7 from '../../assets/images/Cs7.svg'
+import Cs8 from '../../assets/images/Cs8.svg'
+import Cs9 from '../../assets/images/Cs9.svg'
 function Services() {
   return (
     <>

@@ -1,6 +1,6 @@
-import CenterContents from 'components/contents/CenterContents';
-import NavBar from 'components/nav/Navbar';
-import CustomizedTable from 'components/tables/Table';
+import CenterContents from 'components/contents/CenterContents'
+import NavBar from 'components/nav/Navbar'
+import CustomizedTable from 'components/tables/Table'
 // import footer from '../images/footer.png';
 // import backgroundImage from '../images/bg-image.png';
 
@@ -52,4 +52,4 @@ const Project1 = () => {
   )
 }
 
-export default Project1;
+export default Project1

@@ -1,5 +1,5 @@
 export const addLink = ({ title, url, linkType, setLoading }) => {
-  fetch(`http://localhost:5000/api/form/addlink`, {
+  fetch(`${process.env.REACT_APP_API_URL}/api/form/addlink`, {
     method: 'post',
     headers: {
       'Content-Type': 'application/json',
@@ -20,7 +20,7 @@ export const addLink = ({ title, url, linkType, setLoading }) => {
 export const addPdf = ({ pdf, linkType, setLoading }) => {
   const formData = new FormData()
   formData.append('pdf', pdf)
-  fetch(`http://localhost:5000/api/form/addpdf`, {
+  fetch(`${process.env.REACT_APP_API_URL}/api/form/addpdf`, {
     method: 'post',
     // headers: {
     //   'Content-Type': 'multipart/form-data',
@@ -36,7 +36,7 @@ export const addPdf = ({ pdf, linkType, setLoading }) => {
 }
 
 export const deletePdf = ({ pdfId }) => {
-  fetch(`http://localhost:5000/api/form/deletepdf`, {
+  fetch(`${process.env.REACT_APP_API_URL}/api/form/deletepdf`, {
     method: 'delete',
     headers: {
       'Content-Type': 'application/json',
@@ -53,7 +53,7 @@ export const deletePdf = ({ pdfId }) => {
     .catch((err) => err)
 }
 export const getLinks = ({ setLoading, setData }) => {
-  fetch(`http://localhost:5000/api/form/getlinks`, {
+  fetch(`${process.env.REACT_APP_API_URL}/api/form/getlinks`, {
     method: 'get',
     headers: {
       'Content-Type': 'application/json',
