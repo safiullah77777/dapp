@@ -1,18 +1,12 @@
 import Footer from 'components/Footer/Footer'
 import Navbar from 'components/Navbar/Navbar'
 
-
-
-
-
-
 // //Create new plugin instance
 function Isekai() {
-  
   return (
     <>
       <Navbar />
-      
+
       <div className="w-full  bg3 flex flex-col items-center justify-center py-[8rem] gap-[3rem]">
         <h1 className="text-[7rem] max-w-[82rem] text-[#FFFFFF] font-[300] leading-[100%] text-center">
           start your journey with<span className="text-[#E8C37E] font-[700]"> Isekai</span> since minting is over
@@ -56,7 +50,7 @@ function Isekai() {
         title="YouTube video player"
         frameBorder="0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen
+        allowFullScreen
       ></iframe>
       <Footer />
     </>

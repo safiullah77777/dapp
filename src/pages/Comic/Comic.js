@@ -90,9 +90,18 @@ const Home = () => {
             .map((item, index) => {
               if (item.linkType === 'comic') {
                 return (
-                  <span onClick={() => setPdf(item?.url)}>
-                    <Card title={item?.title || 'Comic Videos'} image={images[index]} />
-                  </span>
+                  // <span key={index} onClick={() => setPdf(item?.url)}>
+                  <Card
+                    _id={item?._id}
+                    setPdf={setPdf}
+                    url={item?.url}
+                    data={data}
+                    setData={setData}
+                    title={item?.title || 'Comic Videos'}
+                    image={images[index]}
+                    pdfId={item?.pdfId}
+                  />
+                  // </span>
                 )
               }
             })}
@@ -100,14 +109,10 @@ const Home = () => {
       )}
       {pdf && (
         <div className="flex mx-auto mb-[5rem]">
-          
           <div className="w-[100rem] mx-auto max-[1000px]:w-[80rem] max-[600px]:w-[50rem]">
-            <Worker  workerUrl="https://unpkg.com/pdfjs-dist@3.1.81/build/pdf.worker.min.js">
-              <div style={{ height: '750px' }}>
-                <Viewer
-                  fileUrl={`${!pdf ? 'https://arxiv.org/pdf/quant-ph/0410100.pdf' : pdf}`}
-                  plugins={[defaultLayoutPluginInstance]}
-                />
+            <Worker workerUrl="https://unpkg.com/pdfjs-dist@3.1.81/build/pdf.worker.min.js">
+              <div style={{ height: '550px' }}>
+                <Viewer fileUrl={`${pdf}`} plugins={[defaultLayoutPluginInstance]} />
               </div>
             </Worker>
           </div>

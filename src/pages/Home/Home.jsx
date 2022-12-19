@@ -125,7 +125,7 @@ const Home = () => {
           title="YouTube video player"
           frameBorder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen
+          allowFullScreen
         ></iframe>
 
         {/* <button className="flex gap-[1rem] bg-gradient py-[1.5rem] px-[4rem] rounded-[2.5rem]">

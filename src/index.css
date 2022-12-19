@@ -68,6 +68,14 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
 }
+.rpv-default-layout__toolbar,
+.rpv-default-layout__sidebar-headers,
+.rpv-core__popover-body,
+.rpv-default-layout__sidebar-content
+  .rpv-default-layout__sidebar-content--opened
+  .rpv-default-layout__sidebar-content--ltr {
+  background-color: #1d1d1d;
+}
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }

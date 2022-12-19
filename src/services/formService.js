@@ -1,8 +1,8 @@
 export const addLink = ({ title, url, linkType, setLoading }) => {
-  fetch("https://ill-cyan-cricket-boot.cyclic.app/api/form/addlink", {
-    method: "post",
+  fetch(`${process.env.REACT_APP_API_URL}/api/form/addlink`, {
+    method: 'post',
     headers: {
-      "Content-Type": "application/json",
+      'Content-Type': 'application/json',
       // 'Content-Type': 'application/x-www-form-urlencoded',
     },
     body: JSON.stringify({
@@ -11,24 +11,58 @@ export const addLink = ({ title, url, linkType, setLoading }) => {
       linkType,
     }),
   })
-    .then((data) => {
-      console.log("==>>", { data });
-      setLoading(false);
+    .then(async (data) => {
+      console.log('==>>', await data.json())
+      setLoading(false)
     })
-    .catch((err) => err);
-};
-export const getLinks = ({ setLoading,setData }) => {
-  fetch(`https://ill-cyan-cricket-boot.cyclic.app/api/form/getlinks`, {
-    method: "get",
+    .catch((err) => err)
+}
+export const addPdf = ({ pdf, linkType, setLoading }) => {
+  const formData = new FormData()
+  formData.append('pdf', pdf)
+  fetch(`${process.env.REACT_APP_API_URL}/api/form/addpdf`, {
+    method: 'post',
+    // headers: {
+    //   'Content-Type': 'multipart/form-data',
+    //   // 'Content-Type': 'application/x-www-form-urlencoded',
+    // },
+    body: formData,
+  })
+    .then(async (data) => {
+      console.log('==>>', await data.json())
+      setLoading(false)
+    })
+    .catch((err) => err)
+}
+
+export const deletePdf = ({ pdfId }) => {
+  fetch(`${process.env.REACT_APP_API_URL}/api/form/deletepdf`, {
+    method: 'delete',
     headers: {
-      "Content-Type": "application/json",
+      'Content-Type': 'application/json',
+      // 'Content-Type': 'application/x-www-form-urlencoded',
+    },
+    body: JSON.stringify({
+      pdfId,
+    }),
+  })
+    .then(async (data) => {
+      console.log('==>>', await data.json())
+      // setLoading(false)
+    })
+    .catch((err) => err)
+}
+export const getLinks = ({ setLoading, setData }) => {
+  fetch(`${process.env.REACT_APP_API_URL}/api/form/getlinks`, {
+    method: 'get',
+    headers: {
+      'Content-Type': 'application/json',
     },
   })
     .then((data) => data.json())
     .then((data) => {
-      console.log("==>>", data.links);
       setData(data.links)
-      setLoading(false);
+      setLoading(false)
     })
-    .catch((err) => err);
-};
+    .catch((err) => err)
+}

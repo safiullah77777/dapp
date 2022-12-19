@@ -1,10 +1,11 @@
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
 import Navbar from '../../components/Navbar/Navbar'
 import Footer from '../../components/Footer/Footer'
-import { addLink } from '../../services/formService'
+import { addLink, addPdf } from '../../services/formService'
 // import youtube from "../../../public/assets/icons/youtube.svg"
 // require('dotenv').config()
 function ContactUs() {
+  const inputRef = useRef(null)
   const [youtubeLink, setYoutubeLink] = useState(true)
   const [loading, setLoading] = useState(false)
   const [login, setLogin] = useState(false)
@@ -19,10 +20,10 @@ function ContactUs() {
   const [data, setData] = useState({
     title: '',
     url: '',
+    pdf: {},
   })
   const Login = (e) => {
     e.preventDefault()
-    console.log(process.env)
     if (
       credentials.username !== process.env.REACT_APP_USER_NAME ||
       credentials.password !== process.env.REACT_APP_PASSWORD
@@ -36,12 +37,22 @@ function ContactUs() {
     e.preventDefault()
     if (loading) return
     setLoading(true)
-    addLink({
-      title: data.title,
-      url: data.url,
-      linkType: youtubeLink ? 'youtube' : 'comic',
-      setLoading,
-    })
+    if (youtubeLink)
+      addLink({
+        title: data.title,
+        url: data.url,
+        linkType: 'youtube',
+        setLoading,
+      })
+    else {
+      addPdf({
+        pdf: data.pdf,
+        linkType: 'comic',
+        setLoading,
+      })
+      inputRef.current.value = ''
+    }
+
     setData({
       title: '',
       url: '',
@@ -102,6 +113,7 @@ function ContactUs() {
                   setData({
                     title: '',
                     url: '',
+                    pdf: {},
                   })
                   youtubeBox(true)
                 }}
@@ -120,6 +132,7 @@ function ContactUs() {
                   setData({
                     title: '',
                     url: '',
+                    pdf: {},
                   })
                   youtubeBox(false)
                 }}
@@ -148,41 +161,39 @@ function ContactUs() {
         flex justify-center items-center mx-auto my-2`}
           >
             <form action="#" className="gap-[1rem] flex flex-col justify-around ">
-              {youtubeLink ? (
-                <></>
-              ) : (
-                <>
-                  <div className="flex min-[650px]:w-[50rem] max-[650px]:max-w-[45rem]">
-                    <input
-                      type="text"
-                      className="w-full outline-none h-[48px] bg-[#FFFFFF] text-[#AEAEAE] text-[18px] leading-[28px] font-[400] border-1 border-solid border-[#E2E1E5] rounded-[5px] py-[10px] px-[15px]"
-                      placeholder="title"
-                      name="title"
-                      value={data.title}
-                      onChange={(e) =>
-                        setData((prev) => ({
-                          ...prev,
-                          [e.target.name]: e.target.value,
-                        }))
-                      }
-                    />
-                  </div>
-                </>
-              )}
               <div className="flex min-[650px]:w-[50rem] max-[650px]:max-w-[45rem]">
-                <input
-                  type="text"
-                  className="w-full h-[48px] outline-none bg-[#FFFFFF] text-[#AEAEAE] text-[18px] leading-[28px] font-[400] border-1 border-solid border-[#E2E1E5] rounded-[5px] py-[10px] px-[15px]"
-                  placeholder="URL"
-                  name="url"
-                  value={data.url}
-                  onChange={(e) =>
-                    setData((prev) => ({
-                      ...prev,
-                      [e.target.name]: e.target.value,
-                    }))
-                  }
-                />
+                {youtubeLink ? (
+                  <input
+                    type={'text'}
+                    className="w-full h-[48px] outline-none bg-[#FFFFFF] text-[#AEAEAE] text-[18px] leading-[28px] font-[400] border-1 border-solid border-[#E2E1E5] rounded-[5px] py-[10px] px-[15px]"
+                    placeholder="URL"
+                    name={'url'}
+                    value={data.url}
+                    // accept="application/pdf"
+                    onChange={(e) =>
+                      setData((prev) => ({
+                        ...prev,
+                        [e.target.name]: e.target.value,
+                      }))
+                    }
+                  />
+                ) : (
+                  <input
+                    type={'file'}
+                    className="w-full h-[48px] outline-none bg-[#FFFFFF] text-[#AEAEAE] text-[18px] leading-[28px] font-[400] border-1 border-solid border-[#E2E1E5] rounded-[5px] py-[10px] px-[15px]"
+                    placeholder="upload anime"
+                    name={'pdf'}
+                    ref={inputRef}
+                    // value={data.pdf}
+                    accept="application/pdf"
+                    onChange={(e) =>
+                      setData((prev) => ({
+                        ...prev,
+                        [e.target.name]: e.target.files[0],
+                      }))
+                    }
+                  />
+                )}
               </div>
               <button
                 className={`min-[650px]:w-[50rem] max-[650px]:max-w-[45rem] h-[48px]  text-[#FFFFFF] text-[18px] leading-[28px] font-[700] ${

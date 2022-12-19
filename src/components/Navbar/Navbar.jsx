@@ -34,7 +34,7 @@ function Navbar({ page }) {
                 />
               </svg>
               <ul className="absolute min-w-[27rem] top-[3rem]  left-0 flex-col group max-w-0 opacity-0  group-hover:opacity-100 ease-linear duration-100 ">
-                <li className='bg-[#1d1d1d] text-[1.8rem] shadow px-[2rem] py-[1rem] rounded-[.5rem]'>
+                <li className="bg-[#1d1d1d] text-[1.8rem] shadow px-[2rem] py-[1rem] rounded-[.5rem]">
                   <Link to={'/isekai/project1'}>Isekai Liquidity Contract</Link>
                 </li>
               </ul>
