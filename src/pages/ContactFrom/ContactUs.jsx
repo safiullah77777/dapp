@@ -210,7 +210,7 @@ function ContactUs() {
             </form>
           </div>
         )}
-        {login && <div className="grid gap-[2rem] grid-cols-5 px-[2rem] py-[3rem]">
+        {login && <div className="flex gap-[2rem] flex-wrap justify-center px-[2rem] py-[3rem]">
           {console.log("pdfs==>", pdfs)}
           {pdfs
             .filter((data) => data.linkType === 'comic')
