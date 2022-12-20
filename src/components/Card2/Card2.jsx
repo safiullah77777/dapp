@@ -1,7 +1,6 @@
 import React from 'react'
 
 function Card2({ title, image }) {
-  console.log(image)
   return (
     <>
       <div>

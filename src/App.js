@@ -1,16 +1,18 @@
-import Project1 from 'pages/Projects/Project1'
+import { lazy,Suspense } from 'react'
 import './App.css'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import Comic from 'pages/Comic/Comic'
-import ContactUs from 'pages/ContactFrom/ContactUs'
-import Home from 'pages/Home/Home'
-import TAV from 'pages/TAV/TAV'
-import Isekai from 'pages/Isekai/Isekai'
-import Services from 'pages/Services/Services'
+const Comic = lazy(() => import('pages/Comic/Comic'))
+const ContactUs = lazy(() => import('pages/ContactFrom/ContactUs'))
+const Project1 = lazy(() => import('pages/Projects/Project1'))
+const Home = lazy(() => import('pages/Home/Home'))
+const TAV = lazy(() => import('pages/TAV/TAV'))
+const Isekai = lazy(() => import('pages/Isekai/Isekai'))
+const Services = lazy(() => import('pages/Services/Services'))
 
 function App() {
   return (
     <>
+    <Suspense fallback={()=><h1>loading....</h1>}>
       <Router>
         <Routes>
           <Route path="/" element={<Home />} />
@@ -22,6 +24,7 @@ function App() {
           <Route path="/upload" element={<ContactUs />} />
         </Routes>
       </Router>
+    </Suspense>
     </>
   )
 }

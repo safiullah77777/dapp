@@ -1,19 +1,27 @@
-import React, { useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import Navbar from '../../components/Navbar/Navbar'
 import Footer from '../../components/Footer/Footer'
-import { addLink, addPdf } from '../../services/formService'
+import { addLink, addPdf, getLinks } from '../../services/formService'
+import Card from 'components/Card/Card'
+// import Card4 from 'components/Card4/Card4'
 // import youtube from "../../../public/assets/icons/youtube.svg"
 // require('dotenv').config()
 function ContactUs() {
   const inputRef = useRef(null)
   const [youtubeLink, setYoutubeLink] = useState(true)
   const [loading, setLoading] = useState(false)
+  const [loading1, setLoading1] = useState(false)
   const [login, setLogin] = useState(false)
   const [credentials, setCredentials] = useState({
     username: '',
     password: '',
   })
-
+  const [pdfs, setPdfs] = useState([])
+  useEffect(() => {
+    setLoading1(true)
+    console.log("dtaa===>")
+    getLinks(setLoading1, setPdfs)
+  }, [])
   const youtubeBox = (items) => {
     setYoutubeLink(items)
   }
@@ -106,9 +114,8 @@ function ContactUs() {
           <div className=" w-full  flex flex-col gap-[3rem]  justify-around items-center py-1 ">
             <div className="flex flex-wrap justify-center items-center gap-[10px] ">
               <button
-                className={`flex justify-center gap-[1rem] items-center w-[250px] h-[80px] ${
-                  youtubeLink ? 'bg-[#F41E1E]' : 'bg-[#707070]'
-                } rounded-[15px] text-[#FFFFFF] text-[25px] leading-[28px]`}
+                className={`flex justify-center gap-[1rem] items-center w-[250px] h-[80px] ${youtubeLink ? 'bg-[#F41E1E]' : 'bg-[#707070]'
+                  } rounded-[15px] text-[#FFFFFF] text-[25px] leading-[28px]`}
                 onClick={() => {
                   setData({
                     title: '',
@@ -136,9 +143,8 @@ function ContactUs() {
                   })
                   youtubeBox(false)
                 }}
-                className={`flex justify-center gap-[1rem] items-center w-[250px] h-[80px]  ${
-                  !youtubeLink ? 'bg-[#7E5BFF]' : 'bg-[#707070]'
-                } rounded-[15px] text-[#FFFFFF] text-[25px] leading-[28px]`}
+                className={`flex justify-center gap-[1rem] items-center w-[250px] h-[80px]  ${!youtubeLink ? 'bg-[#7E5BFF]' : 'bg-[#707070]'
+                  } rounded-[15px] text-[#FFFFFF] text-[25px] leading-[28px]`}
               >
                 <svg width="53" height="52" viewBox="0 0 53 52" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path
@@ -155,9 +161,8 @@ function ContactUs() {
         {/* Youtube Container */}
         {login && (
           <div
-            className={`  mt-[3rem] px-[6rem] py-[3rem]  rounded-[50px] ${
-              youtubeLink ? 'bg-[#F41E1E33]' : 'bg-[#7E5BFF33]'
-            }
+            className={`  mt-[3rem] px-[6rem] py-[3rem]  rounded-[50px] ${youtubeLink ? 'bg-[#F41E1E33]' : 'bg-[#7E5BFF33]'
+              }
         flex justify-center items-center mx-auto my-2`}
           >
             <form action="#" className="gap-[1rem] flex flex-col justify-around ">
@@ -196,9 +201,8 @@ function ContactUs() {
                 )}
               </div>
               <button
-                className={`min-[650px]:w-[50rem] max-[650px]:max-w-[45rem] h-[48px]  text-[#FFFFFF] text-[18px] leading-[28px] font-[700] ${
-                  youtubeLink ? 'bg-[#F41E1E]' : 'bg-[#7E5BFF]'
-                }   rounded-[5px] `}
+                className={`min-[650px]:w-[50rem] max-[650px]:max-w-[45rem] h-[48px]  text-[#FFFFFF] text-[18px] leading-[28px] font-[700] ${youtubeLink ? 'bg-[#F41E1E]' : 'bg-[#7E5BFF]'
+                  }   rounded-[5px] `}
                 onClick={(e) => onsubmit(e)}
               >
                 {loading ? 'Loading....' : 'Submit'}
@@ -206,7 +210,23 @@ function ContactUs() {
             </form>
           </div>
         )}
-
+        {login && <div className="grid gap-[2rem] grid-cols-5 px-[2rem] py-[3rem]">
+          {console.log("pdfs==>", pdfs)}
+          {pdfs
+            .filter((data) => data.linkType === 'comic')
+            .map((item, index) => {
+              if (item.linkType === 'comic') {
+                return (
+                  <span key={index} >
+                    <Card
+                      // classes={"w-400px"}
+                      title={item?.title} _id={item?._id} setData={setPdfs} setPdf={false} url={false} pdfId={item?.pdfId} isDelete={true}
+                    />
+                  </span>
+                )
+              }
+            })}
+        </div>}
         {/*Anime Container  */}
         {/* <div className="w-[612px] h-[367px] rounded-[50px] bg-[#7E5BFF33] flex justify-center items-center mx-auto my-5">
         <form action="#" className="h-[270px] flex flex-col justify-around ">

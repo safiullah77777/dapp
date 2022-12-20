@@ -30,7 +30,7 @@ const Home = () => {
   const [data, setData] = useState([])
   useEffect(() => {
     setLoading(true)
-    getLinks({ setLoading, setData })
+    getLinks( setLoading, setData )
   }, [])
 
   const images = [
@@ -48,7 +48,6 @@ const Home = () => {
   return (
     <>
       <Navbar />
-      <Iframe />
 
       {/* Youtube Videos */}
       <h1 className="relative text-5xl ml-[4rem] pl-[1rem]  after:h-[100%] after:absolute after:left-0 after:w-[5px] after:rounded-[1px] after:z-[10]  after:bg-[#19919c] font-bold uppercase leading-[100%]  text-[#EEEEEE] my-[80px] tracking-wider">

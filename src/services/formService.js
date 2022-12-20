@@ -12,7 +12,7 @@ export const addLink = ({ title, url, linkType, setLoading }) => {
     }),
   })
     .then(async (data) => {
-      console.log('==>>', await data.json())
+      console.log('add link==>>', await data.json())
       setLoading(false)
     })
     .catch((err) => err)
@@ -29,10 +29,13 @@ export const addPdf = ({ pdf, linkType, setLoading }) => {
     body: formData,
   })
     .then(async (data) => {
-      console.log('==>>', await data.json())
+      console.log('add pdf==>>', await data.json())
       setLoading(false)
     })
-    .catch((err) => err)
+    .catch((err) => {
+      setLoading(false)
+      return err
+    })
 }
 
 export const deletePdf = ({ pdfId }) => {
@@ -47,12 +50,12 @@ export const deletePdf = ({ pdfId }) => {
     }),
   })
     .then(async (data) => {
-      console.log('==>>', await data.json())
+      console.log('delete pdf==>>', await data.json())
       // setLoading(false)
     })
     .catch((err) => err)
 }
-export const getLinks = ({ setLoading, setData }) => {
+export const getLinks = ( setLoading, setData ) => {
   fetch(`${process.env.REACT_APP_API_URL}/api/form/getlinks`, {
     method: 'get',
     headers: {
@@ -63,6 +66,7 @@ export const getLinks = ({ setLoading, setData }) => {
     .then((data) => {
       setData(data.links)
       setLoading(false)
+      console.log({data})
     })
     .catch((err) => err)
 }

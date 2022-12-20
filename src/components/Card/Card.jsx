@@ -1,18 +1,15 @@
 import React, { useState } from 'react'
 import { deletePdf } from 'services/formService'
 
-function Card({ title, image, _id, setData, data, setPdf, url, pdfId }) {
+function Card({ title, _id, setData, setPdf, url, pdfId, isDelete, classes }) {
   const [isClicked, setClicked] = useState(false)
   return (
     <>
-      <div className="flex cursor-pointer relative flex-col group   overflow-hidden items-center  h-[315px] bg-[#2D2D2D] rounded-[30px]">
-        <span
+      <div className={`flex cursor-pointer w-full relative flex-col group   overflow-hidden items-center  h-[315px] bg-[#2D2D2D] rounded-[30px] ${classes ? classes : ""}`}>
+        {isDelete && <span
           onClick={() => setClicked((prev) => !prev)}
-          onBlur={() => {
-            alert('blur worked')
-            setClicked(false)
-          }}
-          className="absolute right-[3rem]  top-[1rem] z-[10] shadow-2xl"
+
+          className="absolute right-[2rem]  top-[1rem] z-[10] shadow-2xl"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -25,9 +22,8 @@ function Card({ title, image, _id, setData, data, setPdf, url, pdfId }) {
             <path d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z" />{' '}
           </svg>
           <ul
-            className={`bg-[#111111] min-w-[10rem] rounded-[1rem] absolute top-[2.5rem] right-[0rem] ${
-              isClicked ? 'flex' : 'hidden'
-            }`}
+            className={`bg-[#111111] min-w-[10rem] rounded-[1rem] absolute top-[2.5rem] right-[0rem] ${isClicked ? 'flex' : 'hidden'
+              }`}
           >
             <li
               onClick={() => {
@@ -37,16 +33,15 @@ function Card({ title, image, _id, setData, data, setPdf, url, pdfId }) {
                     return item?._id !== _id
                   }),
                 ])
-                console.log(data)
               }}
               className="py-[.5rem] px-[2rem] clash font-[400] text-[2rem] text-[#ffffff]"
             >
               delete
             </li>
           </ul>
-        </span>
+        </span>}
         <img
-          src={image}
+          src={'https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/PDF_file_icon.svg/640px-PDF_file_icon.svg.png'}
           alt="image"
           className="w-full h-full rounded-[5px] duration-300 ease-linear group-hover:scale-105"
         />
@@ -54,7 +49,7 @@ function Card({ title, image, _id, setData, data, setPdf, url, pdfId }) {
           onClick={() => setPdf(url)}
           className="absolute top-[0rem] left-[0rem] p-[1rem] w-full h-full bg-[#000000]/[0.3]"
         >
-          <h2 className="text-[22px] clash font-[500]   overflow-hidden text-[#FFFFFF]  leading-[100%]  h-[38px] ">
+          <h2 className="text-[22px] max-w-[80%] clash font-[500] overflow-hidden text-[#FFFFFF]  leading-[100%]  h-[38px] ">
             {title.slice(0, 199)}
           </h2>
         </div>
