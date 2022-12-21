@@ -19,7 +19,6 @@ function ContactUs() {
   const [pdfs, setPdfs] = useState([])
   useEffect(() => {
     setLoading1(true)
-    console.log("dtaa===>")
     getLinks(setLoading1, setPdfs)
   }, [])
   const youtubeBox = (items) => {
@@ -211,7 +210,6 @@ function ContactUs() {
           </div>
         )}
         {login && <div className="flex gap-[2rem] flex-wrap justify-center px-[2rem] py-[3rem]">
-          {console.log("pdfs==>", pdfs)}
           {pdfs
             .filter((data) => data.linkType === 'comic')
             .map((item, index) => {

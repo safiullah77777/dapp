@@ -41,7 +41,7 @@ function Card({ title, _id, setData, setPdf, url, pdfId, isDelete, classes }) {
           </ul>
         </span>}
         <img
-          src={'https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/PDF_file_icon.svg/640px-PDF_file_icon.svg.png'}
+          src={require('../../assets/images/comic.jpg')}
           alt="image"
           className="w-full h-full rounded-[5px] duration-300 ease-linear group-hover:scale-105"
         />

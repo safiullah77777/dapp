@@ -12,7 +12,6 @@ export const addLink = ({ title, url, linkType, setLoading }) => {
     }),
   })
     .then(async (data) => {
-      console.log('add link==>>', await data.json())
       setLoading(false)
     })
     .catch((err) => err)
@@ -66,7 +65,6 @@ export const getLinks = ( setLoading, setData ) => {
     .then((data) => {
       setData(data.links)
       setLoading(false)
-      console.log({data})
     })
     .catch((err) => err)
 }
